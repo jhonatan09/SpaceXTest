@@ -1,0 +1,29 @@
+.Header {
+  min-height: 80px;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &_select {
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
+    color: #02008d;
+    font-weight: 700;
+    margin-right: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: cursive;
+    option {
+      font-weight: 700;
+      color: #252525;
+      &:first-child{
+        color: #02008d;
+      }
+    }
+  }
+  img {
+    margin-left: 16px;
+  }
+}

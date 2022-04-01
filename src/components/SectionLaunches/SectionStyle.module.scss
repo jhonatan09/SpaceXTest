@@ -1,0 +1,14 @@
+.Launches {
+  min-height: 860px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  &_Title {
+    color: #02008d;
+    font-size: 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: fantasy;
+  }
+}
