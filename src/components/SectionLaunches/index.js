@@ -14,7 +14,6 @@ const SectionLaunches = ({title, widthProps}) => {
     }
   `
 
-  console.log(widthProps)
 
   
 
@@ -25,7 +24,7 @@ const SectionLaunches = ({title, widthProps}) => {
             const intersectionObserver = new IntersectionObserver((entries)=> {
                 if(entries.some((entry) => entry.isIntersecting)){
      
-                  setShow((currentState) => currentState + 1)
+                  setShow((currentState) => currentState + 2)
             
                 }
             })

@@ -35,9 +35,9 @@ function DataContextProvider(props) {
   
     const RemoveItemFavorite = (e, item) => {
         const findIndex = favorite.findIndex(a => a.id === item.id)
-console.log(findIndex)
+
         findIndex !== -1 && favorite.splice(findIndex , 1)
-        console.log(favorite)
+
         setReflesh({});
         
     }
