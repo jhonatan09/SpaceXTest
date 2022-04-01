@@ -3,12 +3,12 @@ import {DataContext} from "../store"
 
 import Header from "./Header";
 import styled from "styled-components";
-
+import style from "./MainStyle.module.scss"
 import SectionLaunches from "./SectionLaunches";
 
 const Main = () => {
     
-    const {selected} = useContext(DataContext)
+    const {selected,data} = useContext(DataContext)
       const Container = styled.div`
         width: 100%;
         display:flex;
@@ -24,29 +24,36 @@ const Main = () => {
       `
 
     
+
+    
     
     return(
         <div>
             <Header />
-            <Container>
-                {selected === "initial"?
-                 <>
-                    <SectionLaunches title={"Past"} widthProps={50}/>
-                    <SectionLaunches title={"Uncoming"} widthProps={50}/>
-                </>
-                :
-                selected === "past"?
-                    <SectionLaunches title={"Past"} widthProps={100}/>
-                :
-                selected === "uncoming"?
-                    <SectionLaunches title={"Uncoming"} widthProps={100}/>
-                :
-                selected === "favorite"?
-                    <SectionLaunches title={"Favorite"} widthProps={100}/>
-                : ''
-               }
-               
+            {data.length === 0?
+                <div className={style.Loader}></div>
+                    :
+
+                    <Container>
+                    {selected === "initial"?
+                        <>
+                            <SectionLaunches title={"Past"} widthProps={50}/>
+                            <SectionLaunches title={"Uncoming"} widthProps={50}/>
+                        </>
+                        :
+                        selected === "past"?
+                            <SectionLaunches title={"Past"} widthProps={100}/>
+                        :
+                        selected === "uncoming"?
+                            <SectionLaunches title={"Uncoming"} widthProps={100}/>
+                        :
+                        selected === "favorite"?
+                            <SectionLaunches title={"Favorite"} widthProps={100}/>
+                        : ''
+                    }
             </Container>
+            
+            }
         </div>
     )
 }

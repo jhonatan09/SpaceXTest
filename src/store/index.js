@@ -12,12 +12,14 @@ function DataContextProvider(props) {
     const [selected, setSelected] = useState("initial")
 
     const [reflesh, setReflesh] = useState()
+
+  
   
     useEffect( () => {
         if(data.length === 0){
             const ShowData = async () => {
                 const res = await Auth.SearchLauchesApi()
-        
+        console.log(res)
                setData(res)
             }
             ShowData()
@@ -43,7 +45,7 @@ function DataContextProvider(props) {
     }
 
     return (
-        <DataContext.Provider value={{data,favorite, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick, RemoveItemFavorite, reflesh, setReflesh}}>
+        <DataContext.Provider value={{data,favorite, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick, RemoveItemFavorite, reflesh}}>
             {props.children}
         </DataContext.Provider>
     )
