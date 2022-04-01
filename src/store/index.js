@@ -19,7 +19,6 @@ function DataContextProvider(props) {
         if(data.length === 0){
             const ShowData = async () => {
                 const res = await Auth.SearchLauchesApi()
-        console.log(res)
                setData(res)
             }
             ShowData()
@@ -45,7 +44,7 @@ function DataContextProvider(props) {
     }
 
     return (
-        <DataContext.Provider value={{data,favorite, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick, RemoveItemFavorite, reflesh}}>
+        <DataContext.Provider value={{data,favorite, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick, RemoveItemFavorite}}>
             {props.children}
         </DataContext.Provider>
     )

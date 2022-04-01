@@ -11,7 +11,7 @@
     text-transform: uppercase;
     font-family: fantasy;
     text-align: center;
-    margin: 8px 0;
+    margin: 16px 0;
   }
   &_Warning{
     color: #a00000;
@@ -20,5 +20,9 @@
     text-transform: uppercase;
     font-family: fantasy;
     margin-top: 32px;
+  }
+  @media(max-width: 450px) {
+      flex-direction: column;
+      align-items: center;
   }
 }
