@@ -2,9 +2,10 @@ import React, {useContext, useEffect, useState} from "react";
 import style from './LaunchesStyle.module.scss'
 import {DataContext} from "../../store"
 
-const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch_success, mission_patch, item,}) => {
+const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch_success, mission_patch, item,showBtnAdd, id}) => {
+    item.id = id
+    const {handleClick, RemoveItemFavorite} = useContext(DataContext)
 
-    const {handleClick} = useContext(DataContext)
     return(
         <div className={style.Launches}>
            <h3 className={style.Launches_Title}>
@@ -41,11 +42,21 @@ const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch
                     </label>
                    {launch_year}
                </div>
-               <button 
-               onClick={(e)=> handleClick(e, item)}
-               >
-                    Add to Favorite
-               </button>
+               {showBtnAdd === true?
+                    <>
+                        <button 
+                        onClick={(e)=> handleClick(e, item)}
+                    >
+                         Add to Favorite
+                    </button>
+                    </>
+                    :
+                    <button 
+                        onClick={(e)=> RemoveItemFavorite(e, item)}
+                    >
+                        Remove to Favorite
+                    </button>
+                }
            </div>
         </div>
     )

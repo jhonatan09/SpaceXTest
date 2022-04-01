@@ -6,10 +6,12 @@ const DataContext = React.createContext()
 function DataContextProvider(props) {
 
     const [data, setData] = useState([])
-    const [favotive, setFavorite] = useState([])
+    const [favorite, setFavorite] = useState([])
     const [showMore, setShowMore] = useState(false)
     const [show, setShow] = useState(4)
     const [selected, setSelected] = useState("initial")
+
+    const [reflesh, setReflesh] = useState()
   
     useEffect( () => {
         if(data.length === 0){
@@ -28,12 +30,20 @@ function DataContextProvider(props) {
 
     const handleClick = (e, item) => {
         e.preventDefault();
-        setFavorite([...favotive, item])
+        setFavorite([...favorite, item])
     }
   
+    const RemoveItemFavorite = (e, item) => {
+        const findIndex = favorite.findIndex(a => a.id === item.id)
+console.log(findIndex)
+        findIndex !== -1 && favorite.splice(findIndex , 1)
+        console.log(favorite)
+        setReflesh({});
+        
+    }
 
     return (
-        <DataContext.Provider value={{data,favotive, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick}}>
+        <DataContext.Provider value={{data,favorite, setFavorite, showMore, setShowMore,show, setShow, selected, setSelected, handleClick, RemoveItemFavorite, reflesh, setReflesh}}>
             {props.children}
         </DataContext.Provider>
     )

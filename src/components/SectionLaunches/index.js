@@ -16,7 +16,9 @@ const SectionLaunches = ({title, widthProps}) => {
 
   console.log(widthProps)
 
-    const {data,show, setShow,selected,favotive} = useContext(DataContext)
+  
+
+    const {data,show, setShow,selected,favorite} = useContext(DataContext)
 
     useEffect(() => {
         if(selected === "past" || selected === "uncoming" || selected === "initial"){
@@ -39,11 +41,16 @@ const SectionLaunches = ({title, widthProps}) => {
     
 
 
-const favorites = favotive?.map( item => {
+const favorites  = favorite?.map( (item, index) => {
     return (
-        <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item}/>
+        <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={false} id={index}/>
     )
 })
+
+
+
+
+
 
 
     const uncoming = data.filter( itens => {
@@ -57,16 +64,16 @@ const favorites = favotive?.map( item => {
   
 
 
-    const lauchesPast = past.map( (item) => {
+    const lauchesPast = past.map( (item, index) => {
         return (
-            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} />
+            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={true} id={index}/>
         )
         
     })
 
-    const lauchesUncoming = uncoming.map( item => {
+    const lauchesUncoming = uncoming.map( (item, index) => {
         return (
-            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} />
+            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={true} id={index}/>
         )
         
     })
