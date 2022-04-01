@@ -88,7 +88,7 @@ const favorites  = favorite?.map( (item, index) => {
                         title === "Uncoming"? lauchesUncoming: lauchesPast: 
                         selected === "past"? lauchesPast:
                         selected === "uncoming"? lauchesUncoming :
-                        selected === "favorite"? favorites : <h2 className={style.Launches_Warning}>Empty Add a item first</h2>
+                        selected === "favorite" && favorites.length !== 0? favorites : <h2 className={style.Launches_Warning}>Empty Add a item first</h2>
                 }
            </div>
            <div id="observer"></div>

@@ -16,6 +16,7 @@ const Main = () => {
         min-height: 100vh;
         height: auto;
         background-color: #ffffff;
+        padding: 4px;
 
         @media(max-width: 1080px) {
             flex-direction: column-reverse;
