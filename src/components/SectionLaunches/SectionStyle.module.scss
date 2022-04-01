@@ -11,4 +11,12 @@
     text-transform: uppercase;
     font-family: fantasy;
   }
+  &_Warning{
+    color: #a00000;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: fantasy;
+    margin-top: 32px;
+  }
 }

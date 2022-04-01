@@ -52,6 +52,7 @@ const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch
                     </>
                     :
                     <button 
+                    className={style.Launches_Button_Remove}
                         onClick={(e)=> RemoveItemFavorite(e, item)}
                     >
                         Remove to Favorite
