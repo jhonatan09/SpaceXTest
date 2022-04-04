@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SpaceXTest/static/css/main.47a85af1.css",
-    "main.js": "/SpaceXTest/static/js/main.916c8201.js",
+    "main.css": "/SpaceXTest/static/css/main.6af3443a.css",
+    "main.js": "/SpaceXTest/static/js/main.a3539a15.js",
     "static/js/787.4f608640.chunk.js": "/SpaceXTest/static/js/787.4f608640.chunk.js",
     "index.html": "/SpaceXTest/index.html",
-    "main.47a85af1.css.map": "/SpaceXTest/static/css/main.47a85af1.css.map",
-    "main.916c8201.js.map": "/SpaceXTest/static/js/main.916c8201.js.map",
+    "main.6af3443a.css.map": "/SpaceXTest/static/css/main.6af3443a.css.map",
+    "main.a3539a15.js.map": "/SpaceXTest/static/js/main.a3539a15.js.map",
     "787.4f608640.chunk.js.map": "/SpaceXTest/static/js/787.4f608640.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.47a85af1.css",
-    "static/js/main.916c8201.js"
+    "static/css/main.6af3443a.css",
+    "static/js/main.a3539a15.js"
   ]
 }
