@@ -64,8 +64,10 @@ const favorites  = favorite?.map( (item, index) => {
 
 
     const lauchesPast = past.map( (item, index) => {
+        let id = index +2;
+      
         return (
-            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={true} id={index}/>
+            <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={true} id={id}/>
         )
         
     })

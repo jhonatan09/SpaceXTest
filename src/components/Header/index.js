@@ -3,7 +3,7 @@ import {DataContext} from "../../store"
 import style from './HeaderStyle.module.scss'
 
 const Header = () => {
-    const {setSelected} = useContext(DataContext)
+    const store = useContext(DataContext)
     const logo = require('../../assets/logo.jpg')
     return(
         <div className={style.Header}>
@@ -13,7 +13,7 @@ const Header = () => {
             onChange={(e) => {
                 e.preventDefault();
                 const selectedOption = e.target.value;
-                setSelected(selectedOption)
+                store.setSelected(selectedOption)
             }}
            >
                <option value="initial">Initial</option>

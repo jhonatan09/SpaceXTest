@@ -15,15 +15,14 @@ $colorWhite: #fff;
     font-family: fantasy;
     word-spacing: 4px;
     button {
+      color:$colorWhite;
       font-size: 15px;
-      color: $colorWhite;
       font-weight: bolder;
       margin-top: 16px;
       border-radius: 5px;
-      border: 1px solid $color;
-      background-color: #0033be;
+      border: 2px solid $color;
       cursor: pointer;
-      padding: 2%;
+      padding: 1%;
       width: 180px;
       text-align: center;
       line-height: 40px;
@@ -58,9 +57,11 @@ $colorWhite: #fff;
       color: #0400ff;
       font-weight: 500;
     }
+    &_Button_Add{
+      background-color: #0033be;
+    }
     &_Button_Remove{
       background-color: #ff0000;
-      color:$color;
     }
     @media(max-width: 450px) {
       width: 80%;

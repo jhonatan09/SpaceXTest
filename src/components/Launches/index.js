@@ -3,8 +3,15 @@ import style from './LaunchesStyle.module.scss'
 import {DataContext} from "../../store"
 
 const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch_success, mission_patch, item,showBtnAdd, id}) => {
-    item.id = id
-    const {handleClick, RemoveItemFavorite} = useContext(DataContext)
+
+    const store = useContext(DataContext)
+    
+    if( item?.id === undefined && store?.selected === "favorite"){
+        item.id = id
+    }
+
+
+   
 
     return(
         <div className={style.Launches}>
@@ -45,7 +52,8 @@ const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch
                {showBtnAdd === true?
                     <>
                         <button 
-                        onClick={(e)=> handleClick(e, item)}
+                        className={style.Launches_Button_Add}
+                        onClick={(e)=> store.handleClick(e, item)}
                     >
                          Add to Favorite
                     </button>
@@ -53,7 +61,7 @@ const Launches = ({flight_number, mission_name, rocket_name, launch_year, launch
                     :
                     <button 
                     className={style.Launches_Button_Remove}
-                        onClick={(e)=> RemoveItemFavorite(e, item)}
+                        onClick={(e)=> store.RemoveItemFavorite(e, item)}
                     >
                         Remove to Favorite
                     </button>
