@@ -18,7 +18,7 @@
     Enzyme:
         npm install enzyme
 
-## Test files are in each component folder:
+## Test files are in each component folder
 
 # what's needed for run that project:
 
