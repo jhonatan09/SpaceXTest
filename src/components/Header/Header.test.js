@@ -2,7 +2,6 @@ import {render, screen} from "@testing-library/react"
 import Header from './index'
 
 
-
 describe("Header component", ()=> {
     test("if is render", ()=> {
         render(<Header />);

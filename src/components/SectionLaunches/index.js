@@ -17,14 +17,14 @@ const SectionLaunches = ({title, widthProps}) => {
 
   
 
-    const {data,show, setShow,selected,favorite} = useContext(DataContext)
-
+  
+    const store = useContext(DataContext)
     useEffect(() => {
-        if(selected === "past" || selected === "uncoming" || selected === "initial"){
+        if(store?.selected === "past" || store?.selected === "uncoming" || store?.selected === "initial"){
             const intersectionObserver = new IntersectionObserver((entries)=> {
                 if(entries.some((entry) => entry.isIntersecting)){
      
-                  setShow((currentState) => currentState + 2)
+                    store?.setShow((currentState) => currentState + 2)
             
                 }
             })
@@ -32,7 +32,7 @@ const SectionLaunches = ({title, widthProps}) => {
     
             return () => intersectionObserver.disconnect();
         }else{
-            setShow(4)
+            store?.setShow(4)
         }
        
     },[]);
@@ -40,7 +40,7 @@ const SectionLaunches = ({title, widthProps}) => {
     
 
 
-const favorites  = favorite?.map( (item, index) => {
+const favorites  = store?.favorite?.map( (item, index) => {
     return (
         <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={false} id={index}/>
     )
@@ -52,18 +52,18 @@ const favorites  = favorite?.map( (item, index) => {
 
 
 
-    const uncoming = data.filter( itens => {
+    const uncoming = store?.data.filter( itens => {
         return itens.upcoming
     })
 
-  const past = data.map(function(item, i) {
-        return (i < show) ?  item : null 
+  const past = store?.data.map(function(item, i) {
+        return (i < store.show) ?  item : null 
       }).filter(x=>x).filter(item => item.upcoming === false)
 
   
 
 
-    const lauchesPast = past.map( (item, index) => {
+    const lauchesPast = past?.map( (item, index) => {
         let id = index +2;
       
         return (
@@ -72,7 +72,7 @@ const favorites  = favorite?.map( (item, index) => {
         
     })
 
-    const lauchesUncoming = uncoming.map( (item, index) => {
+    const lauchesUncoming = uncoming?.map( (item, index) => {
         return (
             <Launches flight_number={item.flight_number} mission_name={item.mission_name} rocket_name={item.rocket.rocket_name} upcoming={item.upcoming} launch_year={item.launch_year} launch_success={item.launch_success} mission_patch={item.links.mission_patch} item={item} showBtnAdd={true} id={index}/>
         )
@@ -85,11 +85,11 @@ const favorites  = favorite?.map( (item, index) => {
             </h2>
            <div className={style.Launches}>
                 {
-                    selected === "initial"? 
+                    store?.selected === "initial"? 
                         title === "Uncoming"? lauchesUncoming: lauchesPast: 
-                        selected === "past"? lauchesPast:
-                        selected === "uncoming"? lauchesUncoming :
-                        selected === "favorite" && favorites.length !== 0? favorites : <h2 className={style.Launches_Warning}>Empty Add a item first</h2>
+                        store?.selected === "past"? lauchesPast:
+                        store?.selected === "uncoming"? lauchesUncoming :
+                        store?.selected === "favorite" && favorites?.length !== 0? favorites : <h2 className={style.Launches_Warning}>Empty Add a item first</h2>
                 }
            </div>
            <div id="observer"></div>
